@@ -7,7 +7,8 @@ module Doorkeeper
     include Doorkeeper::Models::Scopes
 
     belongs_to :application, :class_name => "Doorkeeper::Application", :inverse_of => :access_tokens
-
+    attr_accessible :application_id, :token, :refresh_token
+    
     validates :application_id, :token, :presence => true
     validates :token, :uniqueness => true
     validates :refresh_token, :uniqueness => true, :if => :use_refresh_token?
