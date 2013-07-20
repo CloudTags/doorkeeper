@@ -8,11 +8,11 @@ module Doorkeeper
 
       attr_accessor :pre_auth, :server
 
-      def initialize(pre_auth, server)
+      def initialize(pre_auth, server)    
         @pre_auth, @server = pre_auth, server
       end
 
-      def request
+      def request                
         @request ||= OAuth::CodeRequest.new(pre_auth, server.current_resource_owner)
       end
 
